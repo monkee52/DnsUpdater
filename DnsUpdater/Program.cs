@@ -36,12 +36,12 @@ namespace AydenIO {
                 // Get all updaters, excluding IUpdater as it's an interface
                 IEnumerable<Type> updaters = AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).Where(t => typeof(IUpdater).IsAssignableFrom(t) && t != typeof(IUpdater));
 
-                Debug.WriteLine(String.Format("Found updaters {0}", String.Join(", ", updaters.Select(u => u.Name))));
+                Console.WriteLine("Found updaters {0}", String.Join(", ", updaters.Select(u => u.Name)));
 
                 // Filter to requested updater
                 Type updaterType = updaters.FirstOrDefault(u => String.Equals(u.Name, updaterName, StringComparison.InvariantCultureIgnoreCase));
 
-                Debug.WriteLine(String.Format("Found requested updater {0}", updaterType.Name));
+                Console.WriteLine("Found requested updater {0}", updaterType.Name);
 
                 if (updaterType == null) {
                     // Updater not found
@@ -61,7 +61,7 @@ namespace AydenIO {
                 ParameterInfo[] paramInfos = constructor.GetParameters();
                 string[] paramNames = paramInfos.Select(p => p.Name).ToArray();
 
-                Debug.WriteLine(String.Format("{0} takes options {1}", updaterType.Name, String.Join(", ", paramNames)));
+                Console.WriteLine("{0} takes options {1}", updaterType.Name, String.Join(", ", paramNames));
 
                 object[] initParams = new object[paramNames.Length];
 

@@ -40,12 +40,12 @@ namespace AydenIO {
                 // Get external IP
                 IPAddress externalIp = await getExternalIp();
 
-                Debug.WriteLine(String.Format("External ip is {0}", externalIp.ToString()));
+                Console.WriteLine("External ip is {0}", externalIp.ToString());
 
                 // Create a hosted zone
                 string referenceId = "autoUpdater3-" + Guid.NewGuid().ToString();
 
-                Debug.WriteLine(String.Format("{0} is {1}", nameof(referenceId), referenceId));
+                Console.WriteLine("{0} is {1}", nameof(referenceId), referenceId);
 
                 GetHostedZoneRequest zoneRequest = new GetHostedZoneRequest() {
                     Id = this.hostedZoneId
@@ -56,7 +56,7 @@ namespace AydenIO {
                 // Create a resource record set change batch
                 ResourceRecordSet recordSet;
 
-                Debug.WriteLine(String.Format("Address type is {0}", externalIp.AddressFamily.ToString()));
+                Console.WriteLine("Address type is {0}", externalIp.AddressFamily.ToString());
 
                 if (externalIp.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) {
                     recordSet = new ResourceRecordSet() {
@@ -102,7 +102,7 @@ namespace AydenIO {
                     Id = recordSetResponse.ChangeInfo.Id
                 };
 
-                Debug.Write("Change is pending");
+                Console.Write("Change is pending");
 
                 while (true) {
                     GetChangeResponse changeResponse = await this.awsClient.GetChangeAsync(changeRequest);
@@ -111,13 +111,13 @@ namespace AydenIO {
                         break;
                     }
 
-                    Debug.Write(".");
+                    Console.Write(".");
 
                     await Task.Delay(1000);
                 }
 
-                Debug.WriteLine("");
-                Debug.WriteLine("Change is complete.");
+                Console.WriteLine("");
+                Console.WriteLine("Change is complete.");
             }
         }
     }
