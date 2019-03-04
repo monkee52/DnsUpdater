@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnsUpdater", "DnsUpdater\DnsUpdater.csproj", "{DABEAF7A-E5DA-439A-ADF3-EF10BCCF1A7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DABEAF7A-E5DA-439A-ADF3-EF10BCCF1A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABEAF7A-E5DA-439A-ADF3-EF10BCCF1A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABEAF7A-E5DA-439A-ADF3-EF10BCCF1A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABEAF7A-E5DA-439A-ADF3-EF10BCCF1A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {386EFF5E-581C-4B19-81C3-8B81C954CCF4}
+	EndGlobalSection
+EndGlobal
