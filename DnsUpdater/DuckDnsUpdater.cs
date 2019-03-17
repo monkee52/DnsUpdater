@@ -17,6 +17,13 @@ namespace AydenIO {
                 this.token = token;
             }
 
+            public static IDictionary<string, string> GetHelpMessages() {
+                return new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
+                    ["domain"] = "The FQDN of the domain to update.",
+                    ["token"] = "The DuckDNS API token to authenticate the update."
+                };
+            }
+
             public async Task Update(GetExternalIpAddressHandler getExternalIp) {
                 string updateUri = String.Format(UPDATE_URI, this.domain, this.token);
 

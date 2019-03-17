@@ -36,6 +36,17 @@ namespace AydenIO {
                 this.awsClient = new AmazonRoute53Client(defaultCredentials, RegionEndpoint.GetBySystemName(awsRegionId));
             }
 
+            public static IDictionary<string, string> GetHelpMessages() {
+                return new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) {
+                    ["awsProfilesLocation"] = "The location to the AWS profiles store",
+                    ["awsProfileName"] = "The name of the profile to use in the profile store. Defaults to 'default'",
+                    ["awsRegionId"] = "The AWS Region ID of the Route53 Zone",
+                    ["awsHostedZoneId"] = "The AWS Hosted Zone Id of the zone containing the DNS entry to update",
+                    ["domain"] = "The FQDN of the DNS entry to update",
+                    ["ttl"] = "The TTL of the updated DNS entry. Defaults to 300"
+                };
+            }
+
             public async Task Update(GetExternalIpAddressHandler getExternalIp) {
                 // Get external IP
                 IPAddress externalIp = await getExternalIp();
